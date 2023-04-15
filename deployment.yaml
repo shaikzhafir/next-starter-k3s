@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-starter
+  labels:
+    app: nextjs-starter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs-starter
+  template:
+    metadata:
+      labels:
+        app: nextjs-starter
+    spec:
+      containers:
+        - name: nextjs-app
+          image: zadusz96/next-starter:latest
+          env:
+            - name: NODE_ENV
+              value: production
+          ports:
+            - containerPort: 3000

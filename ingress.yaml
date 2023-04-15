@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nextjs-starter
+spec:
+  rules:
+  - host: cloud.shaikzhafir.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nextjs-starter-service
+            port:
+              number: 80
+  ingressClassName: nginx
